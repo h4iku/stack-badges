@@ -1,3 +1,6 @@
+Data and source code for the paper "Gamified Incentives: A Badge Recommendation Model to Improve User Engagement in Social Networking Websites". ( [pdf](http://thesai.org/Downloads/Volume8No5/Paper_33-Gamified_Incentives_A_Badge_Recommendation.pdf) )
+
+## Repository Description:
 ### `data`:
 Contains badges dataset for different time periods which are extracted from [`Badges.xml` data of Stack Overflow](https://archive.org/details/stackexchange) using `preprocessing/extract_badges.py`.
 * `generated_dataset`: Contains randomly generated train and test dataset from badges dataset using `preprocessing/train_test_generation.py`.
