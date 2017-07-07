@@ -2,13 +2,16 @@ import pandas as pd
 from scipy.spatial.distance import cosine
 import csv
 
+# Loading the 2008 badges dataset
+from datasets import badges2008 as dataset
+
 
 def simi_score(history, similarities):
     return sum(history * similarities) / sum(history + similarities)
 
 
 # Reading the train data
-train_set = pd.read_csv("dataset/train_set.csv")
+train_set = pd.read_csv(dataset.train_set)
 
 # Dropping "UserId" column
 userid_dropped = train_set.drop('UserId', 1)
@@ -33,7 +36,7 @@ for i in range(len(data_calc.columns)):
     badge_neighbors.ix[i] = data_calc.ix[:, i].sort_values(ascending=False)[:10].index
 
 # Reading the test data
-test_set = pd.read_csv("dataset/test_set.csv")
+test_set = pd.read_csv(dataset.test_set)
 userid_dropped = test_set.drop('UserId', 1)
 # Creating a placeholder matrix for similarities
 data_sims = pd.DataFrame(index=test_set.index, columns=test_set.columns)
@@ -66,12 +69,13 @@ for i in range(len(data_sims.index)):
 
 
 # Validating the recommendations
-val_file = open('dataset/validation_set.csv')
+val_file = open(dataset.validation_set)
 reader = csv.reader(val_file)
 
 tp = [0] * 2
 fp = [0] * 2
 for i, row in enumerate(reader):
+    # Top 1 badge recommendation
     if badge_recommend.ix[i, 1] in row[1:]:
         tp[0] += 1
     else:
@@ -84,8 +88,7 @@ for i, row in enumerate(reader):
     else:
         fp[1] += 1
         
-print(tp[0] / (tp[0] + fp[0]))
-print(tp[1] / (tp[1] + fp[1]))
+print('Top 1:', tp[0] / (tp[0] + fp[0]))
+print('Top 2:', tp[1] / (tp[1] + fp[1]))
 
 val_file.close()
-

@@ -2,8 +2,7 @@ import csv
 from itertools import chain
 from collections import Counter
 
-
-DATASET = 'badges2008.csv'
+from datasets import badges2008 as dataset
 
 
 def badges_frequency(dataset_name):
@@ -17,16 +16,16 @@ def badges_frequency(dataset_name):
     return Counter(badges)
 
 
-badge_freq = badges_frequency(DATASET)
+badge_freq = badges_frequency(dataset.all_badges)
 most_common_badges = [badge[0] for badge in badge_freq.most_common(5)]
 
-with open('dataset/test_set.csv') as file:
+with open(dataset.test_set) as file:
     reader = csv.reader(file)
     badges = next(reader)[1:]
     
     test_set = [[int(x) for x in row[1:]] for row in reader]
 
-with open('dataset/validation_set.csv') as file:
+with open(dataset.validation_set) as file:
     reader = csv.reader(file)
     
     eval_set = [badge[1] for badge in reader]
@@ -49,5 +48,3 @@ for k, test in enumerate(test_set):
         fp += 1
         
 print(tp / (tp + fp))
-        
-        
