@@ -45,23 +45,23 @@ def generate_train_test(badges, expanded_dataset):
             evaluation_set[uid] = badges[selection]
     
     # Write sets on files        
-    with open('dataset/train_set.csv', 'w') as file:
+    with open('train_set.csv', 'w') as file:
         file.write('UserId,' + ','.join(badges) + '\n')
         for uid, bs in train_set.items():
             file.write(str(uid) + ',' + ','.join(str(b) for b in bs) + '\n')
             
-    with open('dataset/test_set.csv', 'w') as file:
+    with open('test_set.csv', 'w') as file:
         file.write('UserId,' + ','.join(badges) + '\n')
         for uid, bs in test_set.items():
             file.write(str(uid) + ',' + ','.join(str(b) for b in bs) + '\n')
             
-    with open('dataset/validation_set.csv', 'w') as file:
+    with open('validation_set.csv', 'w') as file:
         for uid, badge in evaluation_set.items():
             file.write(str(uid) + ',' + badge + '\n')
                     
             
 
-DATASET = 'badges2008.csv'
+DATASET = 'badges.csv'
 user_badges = build_dict(DATASET)
 badges, expanded_dataset = expand_user_badges(user_badges)
 
