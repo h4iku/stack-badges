@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+- family-names: Gharibi
+  given-names: Reza
+  orcid: https://orcid.org/0000-0001-6596-3658
+- family-names: Malekzadeh
+  given-names: Mohammad
+title: "Gamified incentives: A badge recommendation model to improve user engagement in social networking websites"
+doi: 10.14569/IJACSA.2017.080533
+repository-code: https://github.com/h4iku/stack-badges
+preferred-citation:
+  type: article
+  authors:
+  - family-names: Gharibi
+    given-names: Reza
+    orcid: https://orcid.org/0000-0001-6596-3658
+  - family-names: Malekzadeh
+    given-names: Mohammad
+  doi: 10.14569/IJACSA.2017.080533
+  journal: "International Journal of Advanced Computer Science and Applications"
+  month: 5
+  start: 272
+  end: 278
+  title: "Gamified incentives: A badge recommendation model to improve user engagement in social networking websites"
+  issue: 5
+  volume: 8
+  year: 2017
+  url: http://dx.doi.org/10.14569/IJACSA.2017.080533
