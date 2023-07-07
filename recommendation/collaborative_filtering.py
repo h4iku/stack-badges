@@ -15,7 +15,7 @@ def simi_score(history, similarities):
 train_set = pd.read_csv(dataset.train_set)
 
 # Dropping "UserId" column
-userid_dropped = train_set.drop('UserId', 1)
+userid_dropped = train_set.drop('UserId', axis=1)
 
 # Creating a placeholder dataframe for badge vs. badge similarity
 data_calc = pd.DataFrame(index=userid_dropped.columns,
@@ -41,7 +41,7 @@ for i in range(len(data_calc.columns)):
 
 # Reading the test data
 test_set = pd.read_csv(dataset.test_set)
-userid_dropped = test_set.drop('UserId', 1)
+userid_dropped = test_set.drop('UserId', axis=1)
 
 # Creating a placeholder matrix for similarities
 data_sims = pd.DataFrame(index=test_set.index, columns=test_set.columns)
